@@ -27,29 +27,23 @@ function getDirectoryContents(fullPath, requestedPath) {
 
   const files = items.map((item) => {
     const itemPath = path.join(fullPath, item);
-
     const stats = fs.statSync(itemPath);
 
-    const relativePath = path.join(requestedPath, item);
+    // Normalize the path with forward slashes
+    const relativePath = path.join(requestedPath, item).replace(/\\/g, "/");
 
     return {
       name: item,
-
       path: relativePath,
-
       isDirectory: stats.isDirectory(),
-
       size: stats.isDirectory() ? "-" : (stats.size / (1024 * 1024)).toFixed(2) + " MB",
-
       modified: stats.mtime.toLocaleDateString(),
     };
   });
 
   return files.sort((a, b) => {
     if (a.isDirectory && !b.isDirectory) return -1;
-
     if (!a.isDirectory && b.isDirectory) return 1;
-
     return a.name.localeCompare(b.name);
   });
 }

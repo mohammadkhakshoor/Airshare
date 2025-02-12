@@ -373,39 +373,25 @@ function renderFileList(files) {
   }
 
   return `
-
     <ul class="file-list">
-
       ${files
-
         .map(
           (file) => `
-
           <li class="file-item">
-
             <span class="file-icon">${file.isDirectory ? "📁" : "📄"}</span>
-
             <span class="file-name">
-
               ${
                 file.isDirectory
                   ? `<a href="${file.path}" class="file-link directory-link">${file.name}/</a>`
-                  : `<a href="/files${file.path}" class="file-link" download>${file.name}</a>`
+                  : `<a href="/files/${file.path.replace(/^\//, "")}" class="file-link" download>${file.name}</a>`
               }
-
             </span>
-
             <span class="file-meta">${file.size}</span>
-
           </li>
-
         `
         )
-
         .join("")}
-
     </ul>
-
   `;
 }
 
