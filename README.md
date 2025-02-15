@@ -29,16 +29,19 @@ npm install -g local-share
 ## Quick Start 🚀
 
 ### Share the current directory:
+
 ```sh
 local-share
 ```
 
 ### Share a specific directory:
+
 ```sh
 local-share ~/Documents
 ```
 
 ### Use a custom port (default: 3000):
+
 ```sh
 local-share --port 8080
 ```
@@ -61,29 +64,17 @@ Options:
   -h, --help             Display help information
 ```
 
-### Programmatic Usage
-
-```js
-const { start } = require('local-share');
-
-// Share the current directory
-start(process.cwd(), 3000);
-
-// Share a specific directory with a custom port
-start('/path/to/directory', 8080);
-```
-
----
-
 ## Features in Detail 🔍
 
 ### 🌑 Theme Support
+
 - Automatic system theme detection.
 - Manual theme toggle with persistent preference.
 - Smooth transitions between themes.
 - High contrast, accessible design.
 
 ### 📂 File Navigation
+
 - Intuitive breadcrumb navigation.
 - Clear file/folder distinction with icons.
 - File size information in MB.
@@ -92,6 +83,7 @@ start('/path/to/directory', 8080);
 - Long filename truncation with ellipsis.
 
 ### 🌍 Network Access
+
 - Automatic local IP detection.
 - Easy-to-share network URLs.
 - Cross-device compatibility.
@@ -102,12 +94,11 @@ start('/path/to/directory', 8080);
 ## Browser Compatibility 🌐
 
 Works with all modern browsers:
+
 - Chrome/Edge (latest)
 - Firefox (latest)
 - Safari (latest)
 - Mobile browsers
-
-
 
 ---
 
@@ -132,10 +123,9 @@ local-share/
 
 ---
 
-
 ## Author ✨
 
-**Mohammad Khakshoor**  
+**Mohammad Khakshoor**
 
 - GitHub: [@mohammadkhakshoor](https://github.com/mohammadkhakshoor)
 - npm: [local-share](https://www.npmjs.com/package/local-share)
@@ -155,6 +145,7 @@ If you encounter any issues or have questions:
 ## Changelog 📝
 
 ### Version 1.0.0
+
 - Initial release.
 - Feature-rich file-sharing server.
 - Dark/Light theme support with system detection.
