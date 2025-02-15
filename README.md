@@ -1,4 +1,4 @@
-# Local Share 🚀
+# Airshare 🚀
 
 A simple and elegant file-sharing server for your local network. Share files and directories with a beautiful, responsive web interface featuring dark/light theme support.
 
@@ -21,7 +21,7 @@ A simple and elegant file-sharing server for your local network. Share files and
 Install via npm:
 
 ```sh
-npm install -g local-share
+npm install -g airshare
 ```
 
 ---
@@ -31,19 +31,19 @@ npm install -g local-share
 ### Share the current directory:
 
 ```sh
-local-share
+airshare
 ```
 
 ### Share a specific directory:
 
 ```sh
-local-share ~/Documents
+airshare ~/Documents
 ```
 
 ### Use a custom port (default: 3000):
 
 ```sh
-local-share --port 8080
+airshare --port 8080
 ```
 
 ---
@@ -53,7 +53,7 @@ local-share --port 8080
 ### Command-Line Interface
 
 ```sh
-Usage: local-share [directory] [options]
+Usage: airshare [directory] [options]
 
 Arguments:
   directory               Directory to share (default: current directory)
@@ -105,7 +105,7 @@ Works with all modern browsers:
 ## Project Structure 📁
 
 ```
-local-share/
+airshare/
 ├── bin/
 │   └── cli.js         # Command-line interface
 ├── src/
@@ -128,7 +128,7 @@ local-share/
 **Mohammad Khakshoor**
 
 - GitHub: [@mohammadkhakshoor](https://github.com/mohammadkhakshoor)
-- npm: [local-share](https://www.npmjs.com/package/local-share)
+- npm: [airshare](https://www.npmjs.com/package/airshare)
 
 ---
 
@@ -136,7 +136,7 @@ local-share/
 
 If you encounter any issues or have questions:
 
-1. Check the [GitHub Issues](https://github.com/mohammadkhakshoor/local-share/issues).
+1. Check the [GitHub Issues](https://github.com/mohammadkhakshoor/airshare/issues).
 2. Open a new issue if needed.
 3. Include relevant details about your environment and use case.
 
@@ -155,4 +155,4 @@ If you encounter any issues or have questions:
 
 ---
 
-Enjoy seamless local file sharing with **Local Share**! 🚀
+Enjoy seamless local file sharing with **Airshare**! 🚀

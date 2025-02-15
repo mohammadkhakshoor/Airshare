@@ -7,17 +7,17 @@ const chalk = require('chalk');
 const packageJson = require('../package.json');
 
 program
-  .name('local-share')
+  .name('airshare')
   .description('A simple and elegant file sharing server for local network')
   .version(packageJson.version)
   .argument('[directory]', 'directory to share (defaults to current directory)')
   .option('-p, --port <number>', 'port to run the server on', '3000')
   .addHelpText('after', `
 Example usage:
-  $ local-share                    # Share current directory on port 3000
-  $ local-share ~/Documents        # Share specific directory
-  $ local-share . --port 8080     # Use custom port
-  $ local-share -h                 # Show help
+  $ airshare                    # Share current directory on port 3000
+  $ airshare ~/Documents        # Share specific directory
+  $ airshare . --port 8080     # Use custom port
+  $ airshare -h                 # Show help
   `)
   .action((directory, options) => {
     const targetDir = directory ? path.resolve(directory) : process.cwd();
