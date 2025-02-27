@@ -1,4 +1,3 @@
-const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -28,7 +27,11 @@ function setupMiddleware(app, directory) {
       const percent = (uploadProgress / total) * 100;
       // Send progress through SSE
       if (req.uploadEventEmitter) {
-        req.uploadEventEmitter.emit("progress", { percent, uploaded: uploadProgress, total });
+        req.uploadEventEmitter.emit("progress", {
+          percent,
+          uploaded: uploadProgress,
+          total,
+        });
       }
     });
 
@@ -72,7 +75,9 @@ function setupMiddleware(app, directory) {
   app.get("/files/*", (req, res) => {
     try {
       // Get the file path by removing '/files' prefix and normalize path
-      const relativePath = decodeURIComponent(req.path.replace(/^\/files\//, "")).replace(/\\/g, "/");
+      const relativePath = decodeURIComponent(
+        req.path.replace(/^\/files\//, ""),
+      ).replace(/\\/g, "/");
       const filePath = path.join(directory, relativePath);
 
       // Security checks
@@ -105,10 +110,16 @@ function setupMiddleware(app, directory) {
       res.setHeader("Content-Length", stat.size);
       res.setHeader("Content-Type", mimeType);
       // Force download with original filename
-      res.setHeader("Content-Disposition", `attachment; filename*=UTF-8''${encodeURIComponent(fileName)}`);
+      res.setHeader(
+        "Content-Disposition",
+        `attachment; filename*=UTF-8''${encodeURIComponent(fileName)}`,
+      );
 
       // Disable caching
-      res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, private");
+      res.setHeader(
+        "Cache-Control",
+        "no-store, no-cache, must-revalidate, private",
+      );
       res.setHeader("Pragma", "no-cache");
       res.setHeader("Expires", "0");
 
