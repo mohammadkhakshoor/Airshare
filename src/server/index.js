@@ -3,6 +3,7 @@ const ip = require("ip");
 const chalk = require("chalk");
 const { setupMiddleware } = require("./middleware");
 const { handleDirectoryRequest } = require("../utils/path");
+const { renderUnicodeCompact: renderQRCode } = require("uqr");
 
 function createServer(directory, port) {
   const app = express();
@@ -15,6 +16,7 @@ function createServer(directory, port) {
 
   // Start server
   app.listen(port, "0.0.0.0", () => {
+    console.log(renderQRCode(`http://${ip.address()}:${port}`)),
     console.log(chalk.green("\n🚀 File sharing server is running!\n"));
     console.log(`Local access:          ${chalk.cyan(`http://localhost:${port}`)}`);
     console.log(`On your network:       ${chalk.cyan(`http://${ip.address()}:${port}`)}\n`);
